@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn153dac7255r"]
+
+[ext_resource type="PackedScene" uid="uid://b4h1xaiktci2n" path="res://Scene/player.tscn" id="1_ity50"]
+[ext_resource type="PackedScene" uid="uid://cpjv8hby1lamx" path="res://Scene/wall.tscn" id="2_4sx6q"]
+[ext_resource type="PackedScene" uid="uid://mushmysxhjj6" path="res://Scene/scrapball.tscn" id="3_4ia2k"]
+[ext_resource type="PackedScene" uid="uid://bbdq020ffdq3p" path="res://Scene/groundscrap.tscn" id="4_ipktp"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_ity50")]
+position = Vector2(1920, 960)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.25, 0.25)
+
+[node name="walls" type="Node" parent="."]
+
+[node name="wall" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(1920, 1280)
+
+[node name="wall2" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(2240, 0)
+
+[node name="wall3" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(1920, 0)
+
+[node name="wall4" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(1600, 0)
+
+[node name="wall5" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(1280, 0)
+
+[node name="wall6" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(960, 0)
+
+[node name="wall7" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(640, 0)
+
+[node name="wall8" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(320, 0)
+
+[node name="wall9" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(0, 960)
+
+[node name="wall10" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(0, 640)
+
+[node name="wall11" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(0, 320)
+
+[node name="wall12" parent="walls" instance=ExtResource("2_4sx6q")]
+position = Vector2(320, 1280)
+
+[node name="scrapball" parent="." instance=ExtResource("3_4ia2k")]
+position = Vector2(960, 640)
+
+[node name="RayCast2D" type="RayCast2D" parent="scrapball"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="scrapball2" parent="." instance=ExtResource("3_4ia2k")]
+position = Vector2(960, 1920)
+
+[node name="RayCast2D" type="RayCast2D" parent="scrapball2"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="scrapball3" parent="." instance=ExtResource("3_4ia2k")]
+position = Vector2(3200, 640)
+
+[node name="RayCast2D" type="RayCast2D" parent="scrapball3"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="groundscrap" parent="." instance=ExtResource("4_ipktp")]
+position = Vector2(1600, 1280)
+
+[node name="groundscrap2" parent="." instance=ExtResource("4_ipktp")]
+position = Vector2(1920, 2560)
+
+[node name="groundscrap3" parent="." instance=ExtResource("4_ipktp")]
+position = Vector2(3520, 2240)
+
+[node name="groundscrap4" parent="." instance=ExtResource("4_ipktp")]
+position = Vector2(4480, 2560)
+
+[node name="groundscrap5" parent="." instance=ExtResource("4_ipktp")]
+position = Vector2(4800, 2560)
+
+[node name="groundscrap6" parent="." instance=ExtResource("4_ipktp")]
+position = Vector2(3200, 1600)
+
+[node name="groundscrap7" parent="." instance=ExtResource("4_ipktp")]
+position = Vector2(4480, 1280)
