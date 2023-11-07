@@ -1,17 +1,16 @@
 extends Area2D
 
-
-var taken = false
-
-
-
-
+# Did a scrap ball roll over this ground scrap
+var scrapTaken = false
 
 func _on_body_entered(body):
-	if body.is_in_group('scrapball') and !taken:
-		taken = true
-		body.increase_size()
+	# If scrap ball rolls over ground scrap and scrap hasn't been taken
+	if body.is_in_group('scrapball') and !scrapTaken:
+		# Set to taken, update texture (we could maybe also just delete it), and increase scrap ball size
+		scrapTaken = true
 		$Sprite2D.texture = load("res://Assets/snowgone.png")
+		body.increase_size()
+		
 		
 
 
