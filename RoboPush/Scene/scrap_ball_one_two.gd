@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 @onready var ray = $RayCast2D
 
-
-
 var grid_size = 320
 
 var inputs = {
@@ -13,60 +11,70 @@ var inputs = {
 	'ui_right': Vector2.RIGHT
 }
 
+# When pushed into empty space
 var ball1;
 var ball2;
+# When pushed onto a 2
+var ball1_2;
+# When pushed onto a 3
+var ball1_3;
+# When pushed onto a 2, 3
+var ball1_2_3;
+
 func _ready():
-	ball1 = get_parent().get_node("scrapball")
-	ball2 = get_parent().get_node("scrapball2")
-
-
-# "Level" of scrap
-var scrapCount = 1
-
-# If rolled over the scrap on the ground, increase scrap if not reached 3
-func increase_size():
-	if scrapCount < 3:
-		scrapCount += 1
-		self.set_z_index(self.get_z_index() - 1) # Tried messing with this, didn't work how I wanted.
-		if scrapCount == 2:
-			$Sprite2D.texture = load("res://Assets/two.png")
-		elif scrapCount == 3:
-			$Sprite2D.texture = load("res://Assets/three.png")
-
-func create_1_2():
-	var new_ball1 = ball1.duplicate()
-	var new_ball2 = ball2.duplicate()
-	get_parent().add_child(new_ball1)
-	get_parent().add_child(new_ball2)
-	return [new_ball1, new_ball2]
-
-	
-	
+	ball1 = get_parent().get_node("MAIN_Scrap1").duplicate()
+	ball2 = get_parent().get_node("MAIN_Scrap2").duplicate()
+	ball1_2 = get_parent().get_node("MAIN_Scrap1_2").duplicate()
+	ball1_3 = get_parent().get_node("MAIN_Scrap1_3").duplicate()
+	ball1_2_3 = get_parent().get_node("MAIN_Scrap1_2_3").duplicate()
 
 func move(dir):
 	# Calculate vector and do ray stuff
 	var vector_pos = inputs[dir] * grid_size
-	var new_balls = create_1_2()
-	new_balls[0].position = position + vector_pos
-	new_balls[1].position = position
-	print(self)
-	get_parent().remove_child(self)
-	return false
+	
 	ray.target_position = vector_pos
 	ray.force_raycast_update()
 	
 	# If scrap ball doesn't collide with anything, then it can be pushed
 	if !ray.is_colliding():
-		
-		position += vector_pos
-		return true
-	# If it does collide with something, make sure it's a bigger ball and you can put it on top
+		get_parent().add_child(ball1)
+		get_parent().add_child(ball2)
+		ball1.position = position + vector_pos
+		ball2.position = position
+		get_parent().remove_child(self)
+		return false
+
+	# If it does collide with something, make sure it's a smaller ball and you can put it on top
 	else:
 		var collider = ray.get_collider()
-		if collider.is_in_group('scrapball'):
-			if (collider.scrapCount > scrapCount):
-				position += vector_pos
-				return true
+		#pushed onto a 2
+		if collider.is_in_group('two_balls'):
+			get_parent().add_child(ball1_2)
+			get_parent().add_child(ball2)
+			ball1_2.position = position + vector_pos
+			ball2.position = position
+			get_parent().remove_child(collider)
+			get_parent().remove_child(self)
+			return false
+		# when pushed onto a 3
+		elif collider.is_in_group('three_balls'):
+			get_parent().add_child(ball1_3)
+			get_parent().add_child(ball2)
+			ball1_3.position = position + vector_pos
+			ball2.position = position
+			get_parent().remove_child(collider)
+			get_parent().remove_child(self)
+			return false
+		elif collider.is_in_group('two_three_balls'):
+			get_parent().add_child(ball1_2_3)
+			get_parent().add_child(ball2)
+			ball1_2_3.position = position + vector_pos
+			ball2.position = position
+			get_parent().remove_child(collider)
+			get_parent().remove_child(self)
+			return false
+		
+			
 	return false
 
 	

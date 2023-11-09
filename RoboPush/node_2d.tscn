@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bbdq020ffdq3p" path="res://Scene/groundscrap.tscn" id="4_ipktp"]
 [ext_resource type="PackedScene" uid="uid://g7hclkjpn786" path="res://Scene/scrap_ball_one_two.tscn" id="5_pua4l"]
 [ext_resource type="PackedScene" uid="uid://ki732h48s72l" path="res://Scene/scrapball_2.tscn" id="6_5s0ox"]
+[ext_resource type="Script" path="res://Scene/main_scrap_1_2.gd" id="6_ujexf"]
 [ext_resource type="PackedScene" uid="uid://ch74pvec6pxv4" path="res://Scene/main_scrap_1.tscn" id="7_ceckv"]
 [ext_resource type="PackedScene" uid="uid://cw6njfpvevj3y" path="res://Scene/main_scrap_2.tscn" id="8_0g1eh"]
-[ext_resource type="Script" path="res://Scene/main_scrap_2.gd" id="9_pmy8b"]
 [ext_resource type="PackedScene" uid="uid://dnjfac4hxy7kl" path="res://Scene/main_scrap_3.tscn" id="10_13rvy"]
 [ext_resource type="PackedScene" uid="uid://b3bw0opejs0vv" path="res://Scene/main_scrap_1_2.tscn" id="11_8qke2"]
 [ext_resource type="PackedScene" uid="uid://crfb6gmxflpbu" path="res://Scene/main_scrap_1_3.tscn" id="12_retdg"]
@@ -95,6 +95,7 @@ target_position = Vector2(0, 320)
 
 [node name="scrapball_1_2" parent="." groups=["all_balls", "one_two_balls"] instance=ExtResource("5_pua4l")]
 position = Vector2(2240, 960)
+script = ExtResource("6_ujexf")
 
 [node name="RayCast2D" type="RayCast2D" parent="scrapball_1_2"]
 position = Vector2(160, 160)
@@ -121,7 +122,6 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap2" parent="." instance=ExtResource("8_0g1eh")]
-script = ExtResource("9_pmy8b")
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap2"]
 position = Vector2(160, 160)
@@ -151,13 +151,14 @@ target_position = Vector2(0, 320)
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
-[node name="MAIN_Scrap2_3" parent="." instance=ExtResource("14_wxlav")]
+[node name="MAIN_Scrap2_3" parent="." groups=["two_three_balls"] instance=ExtResource("14_wxlav")]
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap2_3"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
-[node name="scrapball3" parent="." groups=["three_balls"] instance=ExtResource("15_ueyfp")]
+[node name="scrapball3" parent="." groups=["all_balls", "three_balls"] instance=ExtResource("15_ueyfp")]
+position = Vector2(3840, 1600)
 
 [node name="RayCast2D" type="RayCast2D" parent="scrapball3"]
 position = Vector2(160, 160)

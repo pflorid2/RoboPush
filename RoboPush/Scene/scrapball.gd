@@ -14,11 +14,18 @@ var inputs = {
 var ball1_2
 var ball1_3
 var ball1_2_3
+var ball_2
 func _ready():
+	ball_2 = get_parent().get_node("MAIN_Scrap2").duplicate()
 	ball1_2 = get_parent().get_node("MAIN_Scrap1_2").duplicate()
 	ball1_3 = get_parent().get_node("MAIN_Scrap1_3").duplicate()
 	ball1_2_3 = get_parent().get_node("MAIN_Scrap1_2_3").duplicate()
-
+	
+func increase_size():
+	get_parent().add_child(ball_2)
+	ball_2.position = position
+	get_parent().remove_child(self)
+	
 func move(dir):
 	# Calculate vector and do ray stuff
 	var vector_pos = inputs[dir] * grid_size
@@ -40,7 +47,7 @@ func move(dir):
 			get_parent().remove_child(self)
 		elif collider.is_in_group('three_balls'):
 			get_parent().add_child(ball1_3)
-			ball1_2.position = position + vector_pos
+			ball1_3.position = position + vector_pos
 			get_parent().remove_child(collider)
 			get_parent().remove_child(self)
 		elif collider.is_in_group('two_three_balls'):

@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnjfac4hxy7kl"]
+[gd_scene load_steps=4 format=3 uid="uid://dnjfac4hxy7kl"]
 
 [ext_resource type="Texture2D" uid="uid://dpw2yskj24t70" path="res://Assets/three.png" id="1_00mdt"]
+[ext_resource type="Script" path="res://Scene/main_scrap_3.gd" id="1_4dpcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4k0w4"]
 size = Vector2(308, 312)
 
 [node name="MAIN_Scrap3" type="CharacterBody2D" groups=["all_balls", "main_scrap_balls", "three_balls"]]
+script = ExtResource("1_4dpcs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(159, 158)
