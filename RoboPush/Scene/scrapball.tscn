@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgmva"]
 size = Vector2(270.255, 292.082)
 
-[node name="scrapball" type="CharacterBody2D" groups=["on_top", "scrapball"]]
+[node name="scrapball" type="CharacterBody2D" groups=["all_scrap_balls", "on_top"]]
 z_index = 3
 script = ExtResource("1_mlml5")
 

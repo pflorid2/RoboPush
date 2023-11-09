@@ -9,7 +9,7 @@ func _on_body_entered(body):
 		# Set to taken, update texture (we could maybe also just delete it), and increase scrap ball size
 		scrapTaken = true
 		$Sprite2D.texture = load("res://Assets/snowgone.png")
-		body.increase_size()
+		#body.increase_size()
 		
 		
 

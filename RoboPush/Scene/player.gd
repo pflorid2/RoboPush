@@ -36,7 +36,7 @@ func move(dir):
 		var collider = ray.get_collider()
 		print(collider)
 		print(collider.get_z_index())
-		if collider.is_in_group('scrapball'):
+		if collider.is_in_group('all_balls'):
 			# Call move on the scrap ball passing in the direction we pressed... If the ball moved
 			# also move us.
 			if collider.move(dir):

@@ -23,11 +23,10 @@ var inputs = {
 #			$Sprite2D.texture = load("res://Assets/two.png")
 #		elif scrapCount == 3:
 #			$Sprite2D.texture = load("res://Assets/three.png")
-var ball1_2
-func _ready():
-	ball1_2 = get_parent().get_node("scrapball_1_2")
+
 
 func move(dir):
+	print("aasdf")
 	# Calculate vector and do ray stuff
 	var vector_pos = inputs[dir] * grid_size
 	ray.target_position = vector_pos
@@ -37,20 +36,13 @@ func move(dir):
 	if !ray.is_colliding():
 		position += vector_pos
 		return true
-#	# If it does collide with something, make sure it's a bigger ball and you can put it on top
-	else:
-		var collider = ray.get_collider()
-
-		if collider.is_in_group('two_balls'):
-			var new_ball1_2 = ball1_2.duplicate()
-			get_parent().add_child(new_ball1_2)
-			new_ball1_2.position = position + vector_pos
-			get_parent().remove_child(collider)
-			get_parent().remove_child(self)
-			print("here")
-			print(collider)
-			
-			return true
+	# If it does collide with something, make sure it's a bigger ball and you can put it on top
+#	else:
+#		var collider = ray.get_collider()
+#		if collider.is_in_group('scrapball'):
+#			if (collider.scrapCount > scrapCount):
+#				position += vector_pos
+#				return true
 	return false
 
 	
