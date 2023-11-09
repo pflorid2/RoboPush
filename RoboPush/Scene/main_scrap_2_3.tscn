@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb0amm8lojafd"]
+
+[ext_resource type="Texture2D" uid="uid://c1550w8jub3mf" path="res://Assets/two_three.png" id="1_otaeh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk8xd"]
+size = Vector2(316, 316)
+
+[node name="MAIN_Scrap2_3" type="CharacterBody2D" groups=["all_balls", "main_scrap_balls"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(159, 159)
+shape = SubResource("RectangleShape2D_mk8xd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_otaeh")
+centered = false
