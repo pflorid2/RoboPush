@@ -1,4 +1,4 @@
 res://node_2d.tscn
 res://first_level.tscn
-res://Scene/player.gd
 res://Scene/scrapball.gd
+res://Scene/main_scrap_1.gd

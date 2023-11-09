@@ -55,8 +55,9 @@ func move(dir):
 			ball1_2_3.position = position + vector_pos
 			get_parent().remove_child(collider)
 			var root = self.get_parent() 
-			var dialog = root.get_node("AcceptDialog")
 
+			var dialog = root.get_node("AcceptDialog")
+			#dialog.dialog_text = "sdas"
 			dialog.visible = true
 			
 			get_parent().remove_child(self)
