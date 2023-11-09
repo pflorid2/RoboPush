@@ -1,20 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://cn153dac7255r"]
+[gd_scene load_steps=17 format=3 uid="uid://cn153dac7255r"]
 
 [ext_resource type="PackedScene" uid="uid://b4h1xaiktci2n" path="res://Scene/player.tscn" id="1_ity50"]
 [ext_resource type="PackedScene" uid="uid://cpjv8hby1lamx" path="res://Scene/wall.tscn" id="2_4sx6q"]
 [ext_resource type="PackedScene" uid="uid://mushmysxhjj6" path="res://Scene/scrapball.tscn" id="3_4ia2k"]
 [ext_resource type="PackedScene" uid="uid://bbdq020ffdq3p" path="res://Scene/groundscrap.tscn" id="4_ipktp"]
-[ext_resource type="PackedScene" uid="uid://g7hclkjpn786" path="res://Scene/scrap_ball_one_two.tscn" id="5_pua4l"]
-[ext_resource type="PackedScene" uid="uid://ki732h48s72l" path="res://Scene/scrapball_2.tscn" id="6_5s0ox"]
+[ext_resource type="PackedScene" path="res://Scene/scrap_ball_one_two.tscn" id="5_pua4l"]
+[ext_resource type="PackedScene" path="res://Scene/scrapball_2.tscn" id="6_5s0ox"]
 [ext_resource type="Script" path="res://Scene/main_scrap_1_2.gd" id="6_ujexf"]
-[ext_resource type="PackedScene" uid="uid://ch74pvec6pxv4" path="res://Scene/main_scrap_1.tscn" id="7_ceckv"]
-[ext_resource type="PackedScene" uid="uid://cw6njfpvevj3y" path="res://Scene/main_scrap_2.tscn" id="8_0g1eh"]
-[ext_resource type="PackedScene" uid="uid://dnjfac4hxy7kl" path="res://Scene/main_scrap_3.tscn" id="10_13rvy"]
-[ext_resource type="PackedScene" uid="uid://b3bw0opejs0vv" path="res://Scene/main_scrap_1_2.tscn" id="11_8qke2"]
-[ext_resource type="PackedScene" uid="uid://crfb6gmxflpbu" path="res://Scene/main_scrap_1_3.tscn" id="12_retdg"]
-[ext_resource type="PackedScene" uid="uid://di20xhib82at" path="res://Scene/main_scrap_1_2_3.tscn" id="13_gs0p2"]
-[ext_resource type="PackedScene" uid="uid://cb0amm8lojafd" path="res://Scene/main_scrap_2_3.tscn" id="14_wxlav"]
-[ext_resource type="PackedScene" uid="uid://dt6ur4qulfsuo" path="res://Scene/scrapball_3.tscn" id="15_ueyfp"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1.tscn" id="7_ceckv"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_2.tscn" id="8_0g1eh"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_3.tscn" id="10_13rvy"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1_2.tscn" id="11_8qke2"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1_3.tscn" id="12_retdg"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1_2_3.tscn" id="13_gs0p2"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_2_3.tscn" id="14_wxlav"]
+[ext_resource type="PackedScene" path="res://Scene/scrapball_3.tscn" id="15_ueyfp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h3aoq"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -163,3 +165,19 @@ position = Vector2(3840, 1600)
 [node name="RayCast2D" type="RayCast2D" parent="scrapball3"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1984.0
+offset_top = 312.0
+offset_right = 3372.0
+offset_bottom = 919.0
+text = "ttthfth"
+label_settings = SubResource("LabelSettings_h3aoq")
+visible_characters_behavior = 2
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+position = Vector2i(500, 250)
+size = Vector2i(500, 100)
+dialog_text = "You Win"
