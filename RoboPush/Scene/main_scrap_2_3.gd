@@ -1,0 +1,58 @@
+extends CharacterBody2D
+
+@onready var ray = $RayCast2D
+
+var grid_size = 320
+
+var inputs = {
+	'ui_up': Vector2.UP,
+	'ui_down': Vector2.DOWN,
+	'ui_left': Vector2.LEFT,
+	'ui_right': Vector2.RIGHT
+}
+
+# When pushed into empty space
+var ball2;
+var ball3;
+# When pushed onto a 3
+var ball2_3
+
+func _ready():
+	ball2 = get_parent().get_node("MAIN_Scrap2").duplicate()
+	ball3 = get_parent().get_node("MAIN_Scrap3").duplicate()
+	ball2_3 = get_parent().get_node("MAIN_Scrap2_3").duplicate()
+
+func move(dir):
+	# Calculate vector and do ray stuff
+	var vector_pos = inputs[dir] * grid_size
+	
+	ray.target_position = vector_pos
+	ray.force_raycast_update()
+	
+	# If scrap ball doesn't collide with anything, then it can be pushed
+	if !ray.is_colliding():
+		get_parent().add_child(ball2)
+		get_parent().add_child(ball3)
+		ball2.position = position + vector_pos
+		ball3.position = position
+		get_parent().remove_child(self)
+		return false
+
+	# If it does collide with something, make sure it's a smaller ball and you can put it on top
+	else:
+		var collider = ray.get_collider()
+		#pushed onto a 3
+		if collider.is_in_group('three_balls'):
+			get_parent().add_child(ball2_3)
+			get_parent().add_child(ball3)
+			ball2_3.position = position + vector_pos
+			ball3.position = position
+			get_parent().remove_child(collider)
+			get_parent().remove_child(self)
+			return false
+
+		
+			
+	return false
+
+	

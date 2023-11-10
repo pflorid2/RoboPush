@@ -13,11 +13,18 @@ var inputs = {
 	'ui_right': Vector2.RIGHT
 }
 
+
+
+
+
 # Call move on the direction pressed
 func _unhandled_input(event):
+	if event.is_action_pressed("ui_restart"):
+		get_tree().reload_current_scene()
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
+			
 
 
 func move(dir):
@@ -36,7 +43,7 @@ func move(dir):
 		var collider = ray.get_collider()
 		print(collider)
 		print(collider.get_z_index())
-		if collider.is_in_group('scrapball'):
+		if collider.is_in_group('all_balls'):
 			# Call move on the scrap ball passing in the direction we pressed... If the ball moved
 			# also move us.
 			if collider.move(dir):

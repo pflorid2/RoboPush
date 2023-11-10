@@ -1,18 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://cn153dac7255r"]
+[gd_scene load_steps=17 format=3 uid="uid://cn153dac7255r"]
 
 [ext_resource type="PackedScene" uid="uid://b4h1xaiktci2n" path="res://Scene/player.tscn" id="1_ity50"]
 [ext_resource type="PackedScene" uid="uid://cpjv8hby1lamx" path="res://Scene/wall.tscn" id="2_4sx6q"]
 [ext_resource type="PackedScene" uid="uid://mushmysxhjj6" path="res://Scene/scrapball.tscn" id="3_4ia2k"]
 [ext_resource type="PackedScene" uid="uid://bbdq020ffdq3p" path="res://Scene/groundscrap.tscn" id="4_ipktp"]
+[ext_resource type="PackedScene" path="res://Scene/scrap_ball_one_two.tscn" id="5_pua4l"]
+[ext_resource type="PackedScene" path="res://Scene/scrapball_2.tscn" id="6_5s0ox"]
+[ext_resource type="Script" path="res://Scene/main_scrap_1_2.gd" id="6_ujexf"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1.tscn" id="7_ceckv"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_2.tscn" id="8_0g1eh"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_3.tscn" id="10_13rvy"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1_2.tscn" id="11_8qke2"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1_3.tscn" id="12_retdg"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1_2_3.tscn" id="13_gs0p2"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_2_3.tscn" id="14_wxlav"]
+[ext_resource type="PackedScene" path="res://Scene/scrapball_3.tscn" id="15_ueyfp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h3aoq"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="player" parent="." instance=ExtResource("1_ity50")]
-position = Vector2(1920, 960)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-zoom = Vector2(0.25, 0.25)
 
 [node name="walls" type="Node" parent="."]
 
@@ -52,44 +58,138 @@ position = Vector2(0, 320)
 [node name="wall12" parent="walls" instance=ExtResource("2_4sx6q")]
 position = Vector2(320, 1280)
 
-[node name="scrapball" parent="." instance=ExtResource("3_4ia2k")]
-position = Vector2(960, 640)
+[node name="all_groundscraps" type="Node" parent="."]
+
+[node name="groundscrap" parent="all_groundscraps" instance=ExtResource("4_ipktp")]
+position = Vector2(1600, 1280)
+
+[node name="groundscrap2" parent="all_groundscraps" instance=ExtResource("4_ipktp")]
+position = Vector2(1920, 2560)
+
+[node name="groundscrap3" parent="all_groundscraps" instance=ExtResource("4_ipktp")]
+position = Vector2(3520, 2240)
+
+[node name="groundscrap4" parent="all_groundscraps" instance=ExtResource("4_ipktp")]
+position = Vector2(4480, 2560)
+
+[node name="groundscrap5" parent="all_groundscraps" instance=ExtResource("4_ipktp")]
+position = Vector2(4800, 2560)
+
+[node name="groundscrap6" parent="all_groundscraps" instance=ExtResource("4_ipktp")]
+position = Vector2(3200, 1600)
+
+[node name="groundscrap7" parent="all_groundscraps" instance=ExtResource("4_ipktp")]
+position = Vector2(4480, 1280)
+
+[node name="player" parent="." instance=ExtResource("1_ity50")]
+z_index = 1
+position = Vector2(1600, 960)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.25, 0.25)
+
+[node name="scrapball" parent="." groups=["all_balls", "one_balls"] instance=ExtResource("3_4ia2k")]
+position = Vector2(3520, 640)
 
 [node name="RayCast2D" type="RayCast2D" parent="scrapball"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
-[node name="scrapball2" parent="." instance=ExtResource("3_4ia2k")]
-position = Vector2(960, 1920)
+[node name="scrapball_1_2" parent="." groups=["all_balls", "one_two_balls"] instance=ExtResource("5_pua4l")]
+z_index = 1
+position = Vector2(2240, 960)
+script = ExtResource("6_ujexf")
+
+[node name="RayCast2D" type="RayCast2D" parent="scrapball_1_2"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="scrapball_1_3" parent="." groups=["all_balls", "one_two_balls"] instance=ExtResource("5_pua4l")]
+z_index = 1
+position = Vector2(1928, 1856)
+
+[node name="RayCast2D" type="RayCast2D" parent="scrapball_1_3"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="scrapball2" parent="." groups=["all_balls", "two_balls"] instance=ExtResource("6_5s0ox")]
+z_index = 1
+position = Vector2(3520, 1280)
 
 [node name="RayCast2D" type="RayCast2D" parent="scrapball2"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
-[node name="scrapball3" parent="." instance=ExtResource("3_4ia2k")]
-position = Vector2(3200, 640)
+[node name="MAIN_Scrap1" parent="." instance=ExtResource("7_ceckv")]
+z_index = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="MAIN_Scrap2" parent="." instance=ExtResource("8_0g1eh")]
+z_index = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap2"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="MAIN_Scrap3" parent="." instance=ExtResource("10_13rvy")]
+z_index = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap3"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="MAIN_Scrap1_2" parent="." instance=ExtResource("11_8qke2")]
+z_index = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1_2"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="MAIN_Scrap1_3" parent="." instance=ExtResource("12_retdg")]
+z_index = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1_3"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="MAIN_Scrap1_2_3" parent="." instance=ExtResource("13_gs0p2")]
+z_index = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1_2_3"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="MAIN_Scrap2_3" parent="." groups=["two_three_balls"] instance=ExtResource("14_wxlav")]
+z_index = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap2_3"]
+position = Vector2(160, 160)
+target_position = Vector2(0, 320)
+
+[node name="scrapball3" parent="." groups=["all_balls", "three_balls"] instance=ExtResource("15_ueyfp")]
+z_index = 1
+position = Vector2(3840, 1600)
 
 [node name="RayCast2D" type="RayCast2D" parent="scrapball3"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
-[node name="groundscrap" parent="." instance=ExtResource("4_ipktp")]
-position = Vector2(1600, 1280)
+[node name="PopupPanel" type="PopupPanel" parent="."]
 
-[node name="groundscrap2" parent="." instance=ExtResource("4_ipktp")]
-position = Vector2(1920, 2560)
+[node name="Label" type="Label" parent="."]
+offset_left = 1984.0
+offset_top = 312.0
+offset_right = 3372.0
+offset_bottom = 919.0
+text = "ttthfth"
+label_settings = SubResource("LabelSettings_h3aoq")
+visible_characters_behavior = 2
 
-[node name="groundscrap3" parent="." instance=ExtResource("4_ipktp")]
-position = Vector2(3520, 2240)
-
-[node name="groundscrap4" parent="." instance=ExtResource("4_ipktp")]
-position = Vector2(4480, 2560)
-
-[node name="groundscrap5" parent="." instance=ExtResource("4_ipktp")]
-position = Vector2(4800, 2560)
-
-[node name="groundscrap6" parent="." instance=ExtResource("4_ipktp")]
-position = Vector2(3200, 1600)
-
-[node name="groundscrap7" parent="." instance=ExtResource("4_ipktp")]
-position = Vector2(4480, 1280)
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+position = Vector2i(500, 250)
+size = Vector2i(500, 100)
+dialog_text = "You Win"

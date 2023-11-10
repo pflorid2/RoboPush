@@ -1,0 +1,7 @@
+res://node_2d.tscn
+res://first_level.tscn
+res://Scene/scrapball.gd
+res://Scene/main_scrap_1.gd
+res://Scene/player.gd
+res://second_level.tscn
+res://Scene/scrapball_1_2.tscn

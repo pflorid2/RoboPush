@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ki732h48s72l"]
+
+[ext_resource type="Script" path="res://Scene/scrapball2.gd" id="1_36fsj"]
+[ext_resource type="Texture2D" uid="uid://deqx44xr1707q" path="res://Assets/two.png" id="1_n0h6o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjfig"]
+size = Vector2(317, 318)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_36fsj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_n0h6o")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(158.5, 159)
+shape = SubResource("RectangleShape2D_qjfig")
