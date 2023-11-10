@@ -1,20 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvi1hm6kar3fy"]
+[gd_scene load_steps=16 format=3 uid="uid://b4i6pnpbatuwq"]
 
 [ext_resource type="PackedScene" uid="uid://cpjv8hby1lamx" path="res://Scene/wall.tscn" id="1_45fmr"]
 [ext_resource type="PackedScene" uid="uid://bbdq020ffdq3p" path="res://Scene/groundscrap.tscn" id="2_uabs3"]
 [ext_resource type="PackedScene" uid="uid://b4h1xaiktci2n" path="res://Scene/player.tscn" id="3_56f5k"]
 [ext_resource type="PackedScene" uid="uid://mushmysxhjj6" path="res://Scene/scrapball.tscn" id="4_wlfkj"]
-[ext_resource type="PackedScene" uid="uid://g7hclkjpn786" path="res://Scene/scrap_ball_one_two.tscn" id="5_dljxt"]
+[ext_resource type="PackedScene" path="res://Scene/scrap_ball_one_two.tscn" id="5_dljxt"]
 [ext_resource type="Script" path="res://Scene/main_scrap_1_2.gd" id="6_53kh8"]
-[ext_resource type="PackedScene" uid="uid://ki732h48s72l" path="res://Scene/scrapball_2.tscn" id="7_yks1i"]
-[ext_resource type="PackedScene" uid="uid://ch74pvec6pxv4" path="res://Scene/main_scrap_1.tscn" id="8_40ms6"]
-[ext_resource type="PackedScene" uid="uid://cw6njfpvevj3y" path="res://Scene/main_scrap_2.tscn" id="9_y4gxu"]
-[ext_resource type="PackedScene" uid="uid://dnjfac4hxy7kl" path="res://Scene/main_scrap_3.tscn" id="10_tsmm2"]
-[ext_resource type="PackedScene" uid="uid://b3bw0opejs0vv" path="res://Scene/main_scrap_1_2.tscn" id="11_b2x0v"]
-[ext_resource type="PackedScene" uid="uid://crfb6gmxflpbu" path="res://Scene/main_scrap_1_3.tscn" id="12_w0d5q"]
-[ext_resource type="PackedScene" uid="uid://di20xhib82at" path="res://Scene/main_scrap_1_2_3.tscn" id="13_6y314"]
-[ext_resource type="PackedScene" uid="uid://cb0amm8lojafd" path="res://Scene/main_scrap_2_3.tscn" id="14_n8tu1"]
-[ext_resource type="PackedScene" uid="uid://dt6ur4qulfsuo" path="res://Scene/scrapball_3.tscn" id="15_3on8c"]
+[ext_resource type="PackedScene" path="res://Scene/scrapball_2.tscn" id="7_yks1i"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1.tscn" id="8_40ms6"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_2.tscn" id="9_y4gxu"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_3.tscn" id="10_tsmm2"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1_2.tscn" id="11_b2x0v"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1_3.tscn" id="12_w0d5q"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_1_2_3.tscn" id="13_6y314"]
+[ext_resource type="PackedScene" path="res://Scene/main_scrap_2_3.tscn" id="14_n8tu1"]
+[ext_resource type="PackedScene" path="res://Scene/scrapball_3.tscn" id="15_3on8c"]
 
 [node name="SecondLevel" type="Node2D"]
 
@@ -206,6 +206,7 @@ position = Vector2(3200, 1920)
 position = Vector2(2880, 1600)
 
 [node name="player" parent="." instance=ExtResource("3_56f5k")]
+z_index = 1
 position = Vector2(1920, 2240)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -234,6 +235,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="scrapball_1_2" parent="." groups=["all_balls", "one_two_balls"] instance=ExtResource("5_dljxt")]
+z_index = 1
 position = Vector2(-640, 1920)
 script = ExtResource("6_53kh8")
 
@@ -242,6 +244,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="scrapball_1_3" parent="." groups=["all_balls", "one_two_balls"] instance=ExtResource("5_dljxt")]
+z_index = 1
 position = Vector2(-1280, 1600)
 
 [node name="RayCast2D" type="RayCast2D" parent="scrapball_1_3"]
@@ -249,6 +252,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="scrapball2" parent="." groups=["all_balls", "two_balls"] instance=ExtResource("7_yks1i")]
+z_index = 1
 position = Vector2(-960, 1280)
 
 [node name="RayCast2D" type="RayCast2D" parent="scrapball2"]
@@ -256,6 +260,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap1" parent="." instance=ExtResource("8_40ms6")]
+z_index = 1
 position = Vector2(0, -320)
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1"]
@@ -263,6 +268,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap2" parent="." instance=ExtResource("9_y4gxu")]
+z_index = 1
 position = Vector2(0, -320)
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap2"]
@@ -270,6 +276,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap3" parent="." instance=ExtResource("10_tsmm2")]
+z_index = 1
 position = Vector2(0, -320)
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap3"]
@@ -277,6 +284,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap1_2" parent="." instance=ExtResource("11_b2x0v")]
+z_index = 1
 position = Vector2(0, -320)
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1_2"]
@@ -284,6 +292,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap1_3" parent="." instance=ExtResource("12_w0d5q")]
+z_index = 1
 position = Vector2(0, -320)
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1_3"]
@@ -291,6 +300,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap1_2_3" parent="." instance=ExtResource("13_6y314")]
+z_index = 1
 position = Vector2(0, -320)
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1_2_3"]
@@ -298,6 +308,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap2_3" parent="." groups=["two_three_balls"] instance=ExtResource("14_n8tu1")]
+z_index = 1
 position = Vector2(0, -320)
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap2_3"]
@@ -305,8 +316,14 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="scrapball3" parent="." groups=["all_balls", "three_balls"] instance=ExtResource("15_3on8c")]
+z_index = 1
 position = Vector2(-960, 640)
 
 [node name="RayCast2D" type="RayCast2D" parent="scrapball3"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+position = Vector2i(500, 250)
+size = Vector2i(500, 100)
+dialog_text = "You Win"

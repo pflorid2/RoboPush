@@ -82,6 +82,7 @@ position = Vector2(3200, 1600)
 position = Vector2(4480, 1280)
 
 [node name="player" parent="." instance=ExtResource("1_ity50")]
+z_index = 1
 position = Vector2(1600, 960)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -96,6 +97,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="scrapball_1_2" parent="." groups=["all_balls", "one_two_balls"] instance=ExtResource("5_pua4l")]
+z_index = 1
 position = Vector2(2240, 960)
 script = ExtResource("6_ujexf")
 
@@ -104,6 +106,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="scrapball_1_3" parent="." groups=["all_balls", "one_two_balls"] instance=ExtResource("5_pua4l")]
+z_index = 1
 position = Vector2(1928, 1856)
 
 [node name="RayCast2D" type="RayCast2D" parent="scrapball_1_3"]
@@ -111,6 +114,7 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="scrapball2" parent="." groups=["all_balls", "two_balls"] instance=ExtResource("6_5s0ox")]
+z_index = 1
 position = Vector2(3520, 1280)
 
 [node name="RayCast2D" type="RayCast2D" parent="scrapball2"]
@@ -118,48 +122,56 @@ position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap1" parent="." instance=ExtResource("7_ceckv")]
+z_index = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap2" parent="." instance=ExtResource("8_0g1eh")]
+z_index = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap2"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap3" parent="." instance=ExtResource("10_13rvy")]
+z_index = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap3"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap1_2" parent="." instance=ExtResource("11_8qke2")]
+z_index = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1_2"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap1_3" parent="." instance=ExtResource("12_retdg")]
+z_index = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1_3"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap1_2_3" parent="." instance=ExtResource("13_gs0p2")]
+z_index = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap1_2_3"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="MAIN_Scrap2_3" parent="." groups=["two_three_balls"] instance=ExtResource("14_wxlav")]
+z_index = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="MAIN_Scrap2_3"]
 position = Vector2(160, 160)
 target_position = Vector2(0, 320)
 
 [node name="scrapball3" parent="." groups=["all_balls", "three_balls"] instance=ExtResource("15_ueyfp")]
+z_index = 1
 position = Vector2(3840, 1600)
 
 [node name="RayCast2D" type="RayCast2D" parent="scrapball3"]

@@ -14,6 +14,9 @@ var inputs = {
 }
 
 
+
+
+
 # Call move on the direction pressed
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_restart"):
