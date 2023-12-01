@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://0sxed7ppyufl"]
+
+[ext_resource type="Script" path="res://instruction_screen.gd" id="1_2dt8w"]
+
+[node name="instruction_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2dt8w")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 408.0
+offset_right = 800.0
+offset_bottom = 560.0
+text = "Back"
+
+[node name="TextEdit" type="TextEdit" parent="Button"]
+layout_mode = 0
+offset_left = -87.0
+offset_top = -254.0
+offset_right = 416.0
+offset_bottom = -80.0
+text = "Instructions: Your goal is to construct a structure 
+consisting of three balls of scrap stacked on top of  each
+other. Only smaller scrap balls may  be placed on top of
+larger ones. A scrap ball's size can be increased by pushing 
+it over some scrap on the ground."
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
