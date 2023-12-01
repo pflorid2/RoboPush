@@ -22,7 +22,8 @@ func _ready():
 	ball1_2_3 = get_parent().get_node("MAIN_Scrap1_2_3").duplicate()
 	
 func increase_size():
-	get_parent().add_child(ball_2)
+	#get_parent().add_child(ball_2)
+	get_parent().call_deferred("add_child", ball_2)
 	ball_2.position = position
 	get_parent().remove_child(self)
 	

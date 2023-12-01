@@ -1,9 +1,5 @@
 extends Node2D
 
-
-
-
-
 func _on_accept_dialog_confirmed():
 	global.levels_completed[1] = true
 	if global.warping:
