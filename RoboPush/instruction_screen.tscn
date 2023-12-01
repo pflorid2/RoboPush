@@ -29,6 +29,6 @@ text = "Instructions: Your goal is to construct a structure
 consisting of three balls of scrap stacked on top of  each
 other. Only smaller scrap balls may  be placed on top of
 larger ones. A scrap ball's size can be increased by pushing 
-it over some scrap on the ground."
+it over some scrap on the ground. Press 'r' to restart"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

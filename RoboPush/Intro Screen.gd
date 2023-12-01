@@ -14,3 +14,7 @@ func _on_quit_pressed():
 
 func _on_instructions_pressed():
 	get_tree().change_scene_to_file("res://instruction_screen.tscn")
+
+
+func _on_level_select_pressed():
+	get_tree().change_scene_to_file("res://level_select_screen.tscn")

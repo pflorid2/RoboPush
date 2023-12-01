@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4i6pnpbatuwq"]
+[gd_scene load_steps=17 format=3 uid="uid://b4i6pnpbatuwq"]
 
 [ext_resource type="PackedScene" uid="uid://cpjv8hby1lamx" path="res://Scene/wall.tscn" id="1_45fmr"]
+[ext_resource type="Script" path="res://second_level.gd" id="1_m6oo4"]
 [ext_resource type="PackedScene" uid="uid://bbdq020ffdq3p" path="res://Scene/groundscrap.tscn" id="2_uabs3"]
 [ext_resource type="PackedScene" uid="uid://b4h1xaiktci2n" path="res://Scene/player.tscn" id="3_56f5k"]
 [ext_resource type="PackedScene" uid="uid://mushmysxhjj6" path="res://Scene/scrapball.tscn" id="4_wlfkj"]
@@ -17,6 +18,7 @@
 [ext_resource type="PackedScene" path="res://Scene/scrapball_3.tscn" id="15_3on8c"]
 
 [node name="SecondLevel" type="Node2D"]
+script = ExtResource("1_m6oo4")
 
 [node name="walls" type="Node" parent="."]
 
@@ -327,3 +329,5 @@ target_position = Vector2(0, 320)
 position = Vector2i(500, 250)
 size = Vector2i(500, 100)
 dialog_text = "You Win"
+
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_accept_dialog_confirmed"]

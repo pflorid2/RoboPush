@@ -1,4 +1,7 @@
 Button
+CenterContainer
+ColorRect
+TextEdit
 AcceptDialog
 Label
 RichTextLabel

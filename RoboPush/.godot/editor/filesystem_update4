@@ -8,3 +8,8 @@ res://instruction_screen.gd
 res://instruction_screen.tscn
 res://Scene/player.gd
 res://first_level.gd
+res://Scene/groundscrap.gd
+res://global.gd
+res://level_select_screen.gd
+res://level_select_screen.tscn
+res://second_level.gd
